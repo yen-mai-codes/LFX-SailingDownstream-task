@@ -1,8 +1,8 @@
 # LFX-SailingDownstream-task
-Submissions for Coding challenge for my Sailing Downstream application.
+Submissions for Coding challenge for my [Sailing Downstream](https://mentorship.lfx.linuxfoundation.org/project/ef07a2bd-8ec6-4b7e-bcc0-3de191e01ff3) application.
 
-### Description
-I'm picking the second option:
+### Problem Description
+I'm picking the second option from the coding challenge:
 
 Write a Javascript, Python, or OCaml program that:
 -accepts a list of integers
