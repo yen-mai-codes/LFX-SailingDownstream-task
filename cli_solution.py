@@ -5,7 +5,7 @@ Simple CLI solution.
 import argparse
 import sys
 
-def parse_args(args) -> list:
+def parse_args(args: list) -> list:
    """
    Parses the arguments from command line. Throws error if it's not a list of integers, or its length is not a multitude of 10.
 
@@ -18,6 +18,9 @@ def parse_args(args) -> list:
    parser = argparse.ArgumentParser(description='Process a list of integers, with the items at positions which are multiple of 2 or 3 removed. Emits error if the list is not a multiple of 10 in length.')
    parser.add_argument("-l", "--list", type=int, help="a list of integers. It should be a multiple of 10 in length.", nargs='+')
 
+   if not args:
+      raise parser.error("Please add -l flag and follows with a list of integer.")
+   
    namespace = parser.parse_args(args)
    lst = namespace.list
 
