@@ -18,12 +18,14 @@ def parse_args(args: list) -> list:
    parser = argparse.ArgumentParser(description='Process a list of integers, with the items at positions which are multiple of 2 or 3 removed. Emits error if the list is not a multiple of 10 in length.')
    parser.add_argument("-l", "--list", type=int, help="a list of integers. It should be a multiple of 10 in length.", nargs='+')
 
+   # if run program with no flags nor arguments
    if not args:
       raise parser.error("Please add -l flag and follows with a list of integer.")
    
    namespace = parser.parse_args(args)
    lst = namespace.list
 
+   # if input list is not multiple of 10
    if (len(lst) % 10 != 0): 
       raise parser.error("The list must be a multiple of 10 in length")
    return lst
@@ -42,12 +44,13 @@ def process_list(lst : list) -> list:
    lst_len = len(lst)
    new_lst = []
 
+   # add to new_lst items at indices not divisible by 2 or 3
    for i in range(lst_len):
       if (i % 2 != 0) and (i % 3 != 0):
          new_lst.append(lst[i])
    return new_lst
 
-def main(): 
+def main() -> list: 
    lst = parse_args(sys.argv[1:])
    new_lst = process_list(lst)
    print('The input list is: ', lst)
