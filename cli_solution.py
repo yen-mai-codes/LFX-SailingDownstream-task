@@ -7,7 +7,7 @@ import sys
 
 def parse_args(args: list) -> list:
    """
-   Parses the arguments from command line. Throws error if it's not a list of integers, or its length is not a multitude of 10.
+   Parses the arguments from command line. Throws error if it's not a list of integers, or its length is not a multiple of 10.
 
    Args:
       list: a list of items from command line.
@@ -15,12 +15,12 @@ def parse_args(args: list) -> list:
    Returns:
       list: a list of integers.
    """
-   parser = argparse.ArgumentParser(description='Process a list of integers, with the items at positions which are multiple of 2 or 3 removed. Emits error if the list is not a multiple of 10 in length.')
+   parser = argparse.ArgumentParser(description='Returns a list of integers based on the input integer list, but with items at positions which are a multiple of 2 or 3 removed. Emits error if the list is not a multiple of 10 in length.')
    parser.add_argument("-l", "--list", type=int, help="a list of integers. It should be a multiple of 10 in length.", nargs='+')
 
-   # if run program with no flags nor arguments
+   # if run program with no flags or arguments
    if not args:
-      raise parser.error("Please add -l flag and follows with a list of integer.")
+      raise parser.error("Please add -l flag followed by a list of integers.")
    
    namespace = parser.parse_args(args)
    lst = namespace.list
@@ -32,7 +32,7 @@ def parse_args(args: list) -> list:
 
 def process_list(lst : list) -> list:
    """
-   Return new list by removing items at positions which are a multiple of 2 or 3 in lst.
+   Returns a list of integers based on the input lst, but with items at positions which are a multiple of 2 or 3 removed.
 
    Args:
       lst (list): a list of integers.
